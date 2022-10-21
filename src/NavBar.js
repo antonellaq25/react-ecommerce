@@ -1,7 +1,9 @@
 import Container from 'react-bootstrap/Container';
+import {LinkContainer} from 'react-router-bootstrap'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from './components/CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
@@ -9,19 +11,27 @@ function NavBar() {
      
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Kittens</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand >Kittens</Navbar.Brand>
+          </LinkContainer>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <LinkContainer to="/">
+            <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/categoria/features">
+              <Nav.Link>Features</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/categoria/pricing">
+            <Nav.Link>Pricing</Nav.Link>
+            </LinkContainer>
           </Nav>
-          <CartWidget count={6}/>
+          <LinkContainer to="/cart">
+            <Nav.Link>
+              <CartWidget count={6}/>
+            </Nav.Link>
+          </LinkContainer>
         </Container>
-        
       </Navbar>
-
-      
-     
     </>
   );
 }

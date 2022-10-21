@@ -5,9 +5,9 @@ import './style.css'
 function CartWidget({count}){
     return (
         
-        <div class="my-cart"> 
+        <div className="my-cart"> 
             <Icon.Cart3 />
-            <span class="count">{count}</span>  
+            <span className="count">{count}</span>  
         </div>
     )
 }
