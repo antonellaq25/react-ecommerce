@@ -1,8 +1,8 @@
 import React from "react"
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './style.css'
 import { Link, NavLink } from 'react-router-dom';
+
 function ItemDetailContainer({product}){
   
 

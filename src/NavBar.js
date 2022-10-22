@@ -18,11 +18,17 @@ function NavBar() {
             <LinkContainer to="/">
             <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/categoria/features">
-              <Nav.Link>Features</Nav.Link>
+            <LinkContainer to="/categoria/electronics">
+              <Nav.Link>Electronics</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/categoria/pricing">
-            <Nav.Link>Pricing</Nav.Link>
+            <LinkContainer to="/categoria/jewelery">
+            <Nav.Link>Jewelery</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/categoria/men's clothing">
+            <Nav.Link>Men's clothing</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/categoria/women's clothing">
+            <Nav.Link>Women's clothing</Nav.Link>
             </LinkContainer>
           </Nav>
           <LinkContainer to="/cart">

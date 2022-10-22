@@ -3,20 +3,31 @@ import { useState } from "react";
 import { useEffect } from "react"
 import ItemList from "../ItemList";
 import axios from "axios";
+import { Link, useParams } from 'react-router-dom';
+
 
 
    
 function ListContainer({title}){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {id} = useParams();
+
+    if (id) {
+        var url = `https://fakestoreapi.com/products/category/${id}`
+    }  else{
+        var url = "https://fakestoreapi.com/products"
+    };
+   
 
     useEffect(() =>{
+        
         getProducts()
-    }, []);
+    }, [id]);
 
     const getProducts =() => {
         axios
-    .get("https://fakestoreapi.com/products")
+    .get(url)
     .then((res) => {
      setProducts(res.data)})
     .catch( (error) => {
