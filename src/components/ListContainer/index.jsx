@@ -1,10 +1,8 @@
 import React from "react"
-import { useState } from "react";
-import { useEffect } from "react"
+import { useState, useEffect } from "react";
 import ItemList from "../ItemList";
-import axios from "axios";
 import { Link, useParams } from 'react-router-dom';
-import {getDocs, collection, query, where}from "firebase/firestore"
+import { getDocs, collection, query, where} from "firebase/firestore"
 import {db} from "../../firebase/firebase"
 
 
@@ -13,30 +11,22 @@ import {db} from "../../firebase/firebase"
 function ListContainer({title}){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {id} = useParams();
-
+    //const {id} = useParams();
+    
 
    
-    const productCollection = collection(db, 'productos');
-    const q = query(productCollection, where('category', '==', "men's clothing"))
+    //const productCollection = collection(db, "productos");
+    //const q = query(productCollection, 1)
 
     useEffect(() =>{
-        getDocs(productCollection)
+        getDocs( collection(db, "productos"))
         .then ((result) =>{  
-              const listProducts =  result.docs.map(item => {
-              return {
-                ...item.data(),
-                id: item.id,
-              };
-            });
-            
-            setProducts(listProducts);
-        })
-        .catch( (error) => {
-            console.log(error);
+            const products = result.docs.map((doc) => ({...doc.data(), id:doc.id }));
+            setProducts(products);                
+            console.log(products, products);
         })
         .finally(setLoading(false));
-    });
+    }, []);
         
 
     return(

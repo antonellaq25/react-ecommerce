@@ -5,7 +5,7 @@ import {db} from "../../firebase/firebase"
 import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore"
 
 export const Cart = ({estilo, color}) => {
-    const {cart} = useContext(Context);
+    const {cart,total} = useContext(Context);
 
     const comprador ={
         nombre: usuario1,
@@ -17,9 +17,9 @@ export const Cart = ({estilo, color}) => {
         const ventasCollection = collection(db, "ventas");
         addDoc(ventasCollection, {
             comprador,
-            items:cart,
-            total: 
-
+            items:[{nombre:'sth'},{nombre:'sb'}],
+            total:200,
+            date:serverTimestamp()
     });
     };
 
