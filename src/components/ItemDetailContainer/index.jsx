@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
-import Card from 'react-bootstrap/Card';
+import {Card, Button} from 'react-bootstrap';
 import './style.css'
 import { Link, NavLink, useParams } from 'react-router-dom';
-   
+import { CustomContext} from "../../../src/Context/CustomContext"
    
 function ItemDetailContainer({product}){
+    const {addItem} = CustomContext();
+  
     return (
       <>
       {<Card key={product.id} style={{ width: '18rem' }}>
@@ -14,7 +16,9 @@ function ItemDetailContainer({product}){
           <Card.Text>
             {product.description}
           </Card.Text>
-          <Link to={`/products/${product.id}`}>Comprar</Link>
+          <Link to={`/products/${product.id}`}>
+            <Button variant="outline-primary" >Ver mas</Button>
+          </Link>
         </Card.Body>
       </Card>}
       </>

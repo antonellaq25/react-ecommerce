@@ -4,8 +4,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from './components/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
+import { CustomContext} from "../src/Context/CustomContext"
 
 function NavBar() {
+const {cart} = CustomContext();
+
   return (
     <>
      
@@ -33,7 +36,7 @@ function NavBar() {
           </Nav>
           <LinkContainer to="/cart">
             <Nav.Link>
-              <CartWidget count={6}/>
+              <CartWidget count={cart.length}/>
             </Nav.Link>
           </LinkContainer>
         </Container>
