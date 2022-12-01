@@ -1,18 +1,32 @@
 import { React, useEffect, useState, useContext, } from "react";
-import {Card, Container, Row, Col, Button} from 'react-bootstrap';
+import {Card, Alert, Button, Container, Row, Col} from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { Context} from "../../../src/Context/CustomContext"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function ItemDetail(){
     const {products, addItem} = useContext(Context);
     const {id} = useParams();
     const [product, setProduct] = useState({});
-    const handleClick = () => addItem(product,1);
+    const MySwal = withReactContent(Swal);
+
+
+    const handleClick = () =>{
+        addItem(product,1);
+        successAddItemAlert();
+    } ;
+
+    function successAddItemAlert() {
+        MySwal.fire({
+        title: <strong>Listo!</strong>,
+        html: <i>Agregado correctamente</i>,
+        icon: 'success'
+        })
+    }
     
     useEffect(() =>{
         let p = products.find( prod => prod.id == id)
-        console.log( p)
-        console.log(id)
         setProduct(p) 
   
     }, [id]);
