@@ -10,7 +10,7 @@ function ItemDetail(){
     const handleClick = () => addItem(product,1);
     
     useEffect(() =>{
-        let p = products.find( prod => prod.id = id)
+        let p = products.find( prod => prod.id == id)
         console.log( p)
         console.log(id)
         setProduct(p) 
