@@ -5,8 +5,7 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 import { CustomContext} from "../../../src/Context/CustomContext"
    
 function ItemDetailContainer({product}){
-    const {addItem} = CustomContext();
-  
+
     return (
       <>
       {<Card key={product.id} style={{ width: '18rem' }}>
